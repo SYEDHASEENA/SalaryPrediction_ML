@@ -4,19 +4,11 @@ import numpy as np
 
 
 
-
-
 def load_model():
-    try:
-        with open('saved_steps.pkl', 'rb') as file:
-            data = pickle.load(file)
-        return data
-    except FileNotFoundError:
-        print("Model file not found.")
-    except Exception as e:
-        print(f"Error loading the model: {str(e)}")
+    with open('saved_steps.pkl', 'rb') as file:
+        data = pickle.load(file)
+    return data
 
-# Usage:
 data = load_model()
 regressor = data["model"]
 le_country = data["le_country"]
